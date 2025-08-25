@@ -1,25 +1,22 @@
-
 import React, { useState } from 'react';
 import {
   Box,
   TextField,
   Button,
-  Card,
-  CardContent,
   Typography,
   Grid,
   Container,
-  IconButton,
-  Alert
+  Card,
+  CardContent
 } from '@mui/material';
 import {
   PlayArrow as PlayArrowIcon,
-  Add as AddIcon,
   ViewList as ViewListIcon,
   Image as ImageIcon,
   Timeline as TimelineIcon,
   AccountTree as AccountTreeIcon
 } from '@mui/icons-material';
+import ModuleCard from './components/ModuleCard';
 
 const CognitiveTaskBuilder = () => {
   const [currentView, setCurrentView] = useState('home');
@@ -91,93 +88,6 @@ const CognitiveTaskBuilder = () => {
     }
   ];
 
-  const ModuleCard = ({ module }) => (
-    <Grid item xs={12} sm={6} md={3} key={module.id}>
-      <Card 
-        sx={{ 
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
-          '&:hover': {
-            transform: 'translateY(-4px)',
-            boxShadow: 3
-          },
-          backgroundColor: '#fafafa',
-          border: '1px solid #e5e7eb'
-        }}
-      >
-        <CardContent sx={{ flexGrow: 1, textAlign: 'center', p: 3 }}>
-          <Typography variant="h6" component="h2" gutterBottom sx={{ fontWeight: 600, mb: 3 }}>
-            {module.title}
-          </Typography>
-          
-          <Box 
-            sx={{ 
-              width: 120, 
-              height: 120, 
-              borderRadius: '50%', 
-              backgroundColor: module.color,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              mx: 'auto',
-              mb: 3,
-              position: 'relative'
-            }}
-          >
-            {module.icon}
-            <Box
-              sx={{
-                position: 'absolute',
-                bottom: -5,
-                right: -5,
-                width: 40,
-                height: 40,
-                borderRadius: '50%',
-                backgroundColor: '#ffffff',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: 2
-              }}
-            >
-              <AddIcon sx={{ color: '#6b7280' }} />
-            </Box>
-          </Box>
-          
-          <Typography 
-            variant="body2" 
-            color="text.secondary" 
-            sx={{ mb: 3, lineHeight: 1.5, fontSize: '0.9rem' }}
-          >
-            {module.description}
-          </Typography>
-          
-          <Button
-            variant="outlined"
-            onClick={() => handleModuleClick(module.id)}
-            sx={{
-              borderRadius: 25,
-              px: 4,
-              py: 1,
-              textTransform: 'none',
-              fontWeight: 500,
-              borderColor: '#d1d5db',
-              color: '#374151',
-              '&:hover': {
-                borderColor: '#6366f1',
-                backgroundColor: '#f8faff'
-              }
-            }}
-          >
-            Go
-          </Button>
-        </CardContent>
-      </Card>
-    </Grid>
-  );
-
   const ModuleDetailView = ({ moduleId }) => {
     const module = modules.find(m => m.id === moduleId);
     return (
@@ -222,7 +132,11 @@ const CognitiveTaskBuilder = () => {
       {/* Main Module Grid */}
       <Grid container spacing={4} sx={{ mb: 6 }}>
         {modules.map((module) => (
-          <ModuleCard key={module.id} module={module} />
+          <ModuleCard 
+            key={module.id} 
+            module={module} 
+            onModuleClick={handleModuleClick}
+          />
         ))}
       </Grid>
 
