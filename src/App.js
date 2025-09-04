@@ -16,7 +16,10 @@ import {
   Timeline as TimelineIcon,
   AccountTree as AccountTreeIcon
 } from '@mui/icons-material';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './styles/theme';
 import ModuleCard from './components/ModuleCard';
+import './styles/colors.scss';
 
 const CognitiveTaskBuilder = () => {
   const [currentView, setCurrentView] = useState('home');
@@ -38,7 +41,6 @@ const CognitiveTaskBuilder = () => {
       setTaskNameError('Task name must be at least 3 characters');
       return false;
     }
-    // Could add duplicate name checking logic here in the future
     setTaskNameError('');
     return true;
   };
@@ -129,7 +131,6 @@ const CognitiveTaskBuilder = () => {
 
   const HomePage = () => (
     <Container maxWidth="lg" sx={{ py: 4 }}>
-      {/* Main Module Grid */}
       <Grid container spacing={4} sx={{ mb: 6 }}>
         {modules.map((module) => (
           <ModuleCard 
@@ -139,19 +140,14 @@ const CognitiveTaskBuilder = () => {
           />
         ))}
       </Grid>
-
-      {/* Export/Import Buttons */}
       <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
         <Button
           variant="contained"
           sx={{
             backgroundColor: '#1f2937',
             color: 'white',
-            borderRadius: 25,
             px: 4,
             py: 1.5,
-            textTransform: 'none',
-            fontWeight: 500,
             '&:hover': {
               backgroundColor: '#111827'
             }
@@ -164,11 +160,8 @@ const CognitiveTaskBuilder = () => {
           sx={{
             backgroundColor: '#1f2937',
             color: 'white',
-            borderRadius: 25,
             px: 4,
             py: 1.5,
-            textTransform: 'none',
-            fontWeight: 500,
             '&:hover': {
               backgroundColor: '#111827'
             }
@@ -181,94 +174,85 @@ const CognitiveTaskBuilder = () => {
   );
 
   return (
-    <Box sx={{ minHeight: '100vh', backgroundColor: '#f9fafb' }}>
-      {/* Header */}
-      <Box 
-        sx={{ 
-          backgroundColor: 'white',
-          borderBottom: '1px solid #e5e7eb',
-          py: 2,
-          px: 3
-        }}
-      >
-        <Container maxWidth="lg">
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            {/* Logo */}
-            <Typography 
-              variant="h4" 
-              component="h1" 
-              sx={{ 
-                fontWeight: 'bold',
-                color: '#1f2937',
-                fontSize: '2rem'
-              }}
-            >
-              curi🧠us
-            </Typography>
-
-            {/* Task Name Field */}
-            <Box sx={{ maxWidth: 400, flex: 1, mx: 4 }}>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                Task Name
+    <ThemeProvider theme={theme}>
+      <Box sx={{ minHeight: '100vh', backgroundColor: '#f9fafb' }}>
+        <Box 
+          sx={{ 
+            backgroundColor: 'white',
+            borderBottom: '1px solid #e5e7eb',
+            py: 2,
+            px: 3
+          }}
+        >
+          <Container maxWidth="lg">
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <Typography 
+                variant="h4" 
+                component="h1" 
+                sx={{ 
+                  fontWeight: 'bold',
+                  color: '#1f2937',
+                  fontSize: '2rem'
+                }}
+              >
+                curi🧠us
               </Typography>
-              <TextField
-                fullWidth
-                value={taskName}
-                onChange={handleTaskNameChange}
-                error={!!taskNameError}
-                helperText={taskNameError}
-                variant="outlined"
-                size="small"
-                sx={{
-                  '& .MuiOutlinedInput-root': {
-                    '&.Mui-error': {
-                      '& fieldset': {
-                        borderColor: '#ef4444',
+              <Box sx={{ maxWidth: 400, flex: 1, mx: 4 }}>
+                <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                  Task Name
+                </Typography>
+                <TextField
+                  fullWidth
+                  value={taskName}
+                  onChange={handleTaskNameChange}
+                  error={!!taskNameError}
+                  helperText={taskNameError}
+                  variant="outlined"
+                  size="small"
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      '&.Mui-error': {
+                        '& fieldset': {
+                          borderColor: '#ef4444',
+                        },
                       },
                     },
+                    '& .MuiFormHelperText-root.Mui-error': {
+                      color: '#ef4444',
+                    },
+                  }}
+                />
+              </Box>
+              <Button
+                variant="contained"
+                startIcon={<PlayArrowIcon />}
+                disabled={!!taskNameError}
+                sx={{
+                  backgroundColor: '#93c5fd',
+                  color: '#1e40af',
+                  px: 3,
+                  py: 1,
+                  '&:hover': {
+                    backgroundColor: '#7dd3fc'
                   },
-                  '& .MuiFormHelperText-root.Mui-error': {
-                    color: '#ef4444',
-                  },
+                  '&:disabled': {
+                    backgroundColor: '#e5e7eb',
+                    color: '#9ca3af'
+                  }
                 }}
-              />
+              >
+                Preview
+              </Button>
             </Box>
-
-            {/* Preview Button */}
-            <Button
-              variant="contained"
-              startIcon={<PlayArrowIcon />}
-              disabled={!!taskNameError}
-              sx={{
-                backgroundColor: '#93c5fd',
-                color: '#1e40af',
-                borderRadius: 25,
-                px: 3,
-                py: 1,
-                textTransform: 'none',
-                fontWeight: 500,
-                '&:hover': {
-                  backgroundColor: '#7dd3fc'
-                },
-                '&:disabled': {
-                  backgroundColor: '#e5e7eb',
-                  color: '#9ca3af'
-                }
-              }}
-            >
-              Preview
-            </Button>
-          </Box>
-        </Container>
+          </Container>
+        </Box>
+        {currentView === 'home' ? (
+          <HomePage />
+        ) : (
+          <ModuleDetailView moduleId={currentView} />
+        )}
       </Box>
-
-      {/* Main Content */}
-      {currentView === 'home' ? (
-        <HomePage />
-      ) : (
-        <ModuleDetailView moduleId={currentView} />
-      )}
-    </Box>
+    </ThemeProvider>
   );
 };
 

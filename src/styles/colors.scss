@@ -1,0 +1,297 @@
+// colors.scss - Design System Colors
+
+// ==================================================
+// PRIMARY PALETTE
+// ==================================================
+$primary: (
+  0: #000000,
+  3: #0b0907,
+  10: #1d1b19,
+  20: #32302d,
+  25: #393734,
+  30: #484744,
+  35: #4f4e4b,
+  40: #5f5e5b,
+  50: #787773,
+  60: #91918e,
+  70: #acaba9,
+  80: #c6c6c5,
+  90: #e3e2e1,
+  95: #f1f0ef,
+  97: #f6f5f4,
+  98: #faf9f8,
+  99: #fdfcfc,
+  100: #ffffff
+) !default;
+
+// ==================================================
+// SECONDARY PALETTE
+// ==================================================
+$secondary: (
+  0: #000000,
+  10: #041847,
+  20: #182d65,
+  25: #0e3a9a,
+  30: #173f9f,
+  35: #083fc5,
+  40: #004ced,
+  50: #216dff,
+  60: #3c90ff,
+  70: #55b1ff,
+  80: #8bceff,
+  90: #cae6ff,
+  95: #e5f3ff,
+  98: #f5faff,
+  99: #fbfcff,
+  100: #ffffff
+) !default;
+
+// ==================================================
+// TERTIARY PALETTE
+// ==================================================
+$tertiary: (
+  0: #000000,
+  10: #320f1d,
+  20: #4b2432,
+  25: #6b364a,
+  30: #6b364a,
+  35: #7b3952,
+  40: #944262,
+  50: #af5c82,
+  60: #ca779e,
+  70: #d599b7,
+  80: #e5bcd1,
+  90: #f0dae5,
+  95: #f9eef4,
+  98: #fdf8fb,
+  99: #fffbff,
+  100: #ffffff
+) !default;
+
+// ==================================================
+// ERROR PALETTE
+// ==================================================
+$error: (
+  0: #000000,
+  10: #410002,
+  20: #690005,
+  25: #7e0007,
+  30: #93000a,
+  35: #a80710,
+  40: #ba1a1a,
+  50: #de3730,
+  60: #ff5449,
+  70: #ff897d,
+  80: #ffb4ab,
+  90: #ffdad6,
+  95: #ffedea,
+  98: #fff8f7,
+  99: #fffbff,
+  100: #ffffff
+) !default;
+
+// ==================================================
+// NEUTRAL PALETTE
+// ==================================================
+$neutral: (
+  0: #000000,
+  10: #1d1b19,
+  20: #32302d,
+  25: #393734,
+  30: #484744,
+  35: #4f4e4b,
+  40: #5f5e5b,
+  50: #787773,
+  60: #91918e,
+  70: #acaba9,
+  80: #c6c6c5,
+  90: #e3e2e1,
+  95: #f1f0ef,
+  97: #f6f5f4,
+  98: #faf9f8,
+  99: #fdfcfc,
+  100: #ffffff
+) !default;
+
+// ==================================================
+// CUSTOM COLORS
+// ==================================================
+$custom: (
+  blue: #0152fd,
+  brown: #78403c,
+  gray: #787773,
+  green: #386348,
+  orange: #e65838,
+  pink: #ad557a,
+  yellow: #dab318,
+  purple: #6c4e9b,
+  red: #b83236
+) !default;
+
+$custom-light: (
+  blue: #b3cbfe,
+  brown: #d6c6c4,
+  gray: #d6d6d5,
+  green: #c3d0c8,
+  orange: #f7cdc3,
+  pink: #e6ccd7,
+  yellow: #f4e8ba,
+  purple: #d3cae1,
+  red: #eac1c3
+) !default;
+
+// ==================================================
+// SYSTEM COLORS - LIGHT THEME
+// ==================================================
+$light-theme: (
+  primary: #0b0907,
+  on-primary: #ffffff,
+  primary-container: #e3e2e1,
+  on-primary-container: #1d1b19,
+  
+  secondary: #004ced,
+  on-secondary: #ffffff,
+  secondary-container: #cae6ff,
+  on-secondary-container: #000000,
+  
+  tertiary: #944262,
+  on-tertiary: #ffffff,
+  tertiary-container: #f0dae5,
+  on-tertiary-container: #320f1d,
+  
+  error: #ba1a1a,
+  error-container: #ffdad6,
+  on-error: #ffffff,
+  on-error-container: #410002,
+  
+  background: #fdfcfc,
+  on-background: #1d1b19,
+  surface: #fdfcfc,
+  on-surface: #1d1b19,
+  surface-variant: #e3e2e1,
+  on-surface-variant: #484744,
+  
+  outline: #787773,
+  outline-variant: #c6c6c5,
+  
+  surface-1: #f5f4f4,
+  surface-2: #f0efef,
+  surface-3: #ecebea,
+  surface-4: #eae9e9,
+  surface-5: #e7e6e5
+) !default;
+
+// ==================================================
+// SYSTEM COLORS - DARK THEME  
+// ==================================================
+$dark-theme: (
+  primary: #e3e2e1,
+  on-primary: #1d1b19,
+  primary-container: #484744,
+  on-primary-container: #e3e2e1,
+  
+  secondary: #8bceff,
+  on-secondary: #041847,
+  secondary-container: #173f9f,
+  on-secondary-container: #cae6ff,
+  
+  tertiary: #e5bcd1,
+  on-tertiary: #4b2432,
+  tertiary-container: #6b364a,
+  on-tertiary-container: #f0dae5,
+  
+  error: #ffb4ab,
+  error-container: #690005,
+  on-error: #93000a,
+  on-error-container: #ffdad6,
+  
+  background: #1d1b19,
+  on-background: #e3e2e1,
+  surface: #1d1b19,
+  on-surface: #e3e2e1,
+  surface-variant: #484744,
+  on-surface-variant: #c6c6c5,
+  
+  outline: #91918e,
+  outline-variant: #484744,
+  
+  surface-1: #22201e,
+  surface-2: #242220,
+  surface-3: #272523,
+  surface-4: #282624,
+  surface-5: #2a2826
+) !default;
+
+// ==================================================
+// UTILITY FUNCTIONS
+// ==================================================
+@function get-color($palette, $tone: 50) {
+  @return map-get($palette, $tone);
+}
+
+@function primary($tone: 50) {
+  @return get-color($primary, $tone);
+}
+
+@function secondary($tone: 50) {
+  @return get-color($secondary, $tone);
+}
+
+@function tertiary($tone: 50) {
+  @return get-color($tertiary, $tone);
+}
+
+@function custom($color) {
+  @return map-get($custom, $color);
+}
+
+@function theme($property, $is-dark: false) {
+  $theme-map: if($is-dark, $dark-theme, $light-theme);
+  @return map-get($theme-map, $property);
+}
+
+// ==================================================
+// CSS CUSTOM PROPERTIES (CSS Variables)
+// ==================================================
+:root {
+  // Light theme variables
+  @each $key, $value in $light-theme {
+    --color-#{$key}: #{$value};
+  }
+  
+  // Custom colors
+  @each $key, $value in $custom {
+    --color-custom-#{$key}: #{$value};
+  }
+  
+  @each $key, $value in $custom-light {
+    --color-custom-#{$key}-light: #{$value};
+  }
+}
+
+[data-theme="dark"] {
+  // Dark theme variables
+  @each $key, $value in $dark-theme {
+    --color-#{$key}: #{$value};
+  }
+}
+
+// ==================================================
+// UTILITY CLASSES
+// ==================================================
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.text-tertiary { color: var(--color-tertiary); }
+.text-error { color: var(--color-error); }
+
+.bg-primary { background-color: var(--color-primary); }
+.bg-secondary { background-color: var(--color-secondary); }
+.bg-tertiary { background-color: var(--color-tertiary); }
+.bg-surface { background-color: var(--color-surface); }
+
+// Custom color utilities
+@each $name, $color in $custom {
+  .text-#{$name} { color: #{$color}; }
+  .bg-#{$name} { background-color: #{$color}; }
+  .border-#{$name} { border-color: #{$color}; }
+}
